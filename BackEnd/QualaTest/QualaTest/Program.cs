@@ -19,7 +19,6 @@ builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 builder.Services.AddMediatR(typeof(SaveOrUpdateBranchCommand).GetTypeInfo().Assembly);
-//builder.Services.AddMediatR(typeof(GetBranchesQuery).Assembly);
 // Add services to the container.
 
 builder.Services.AddControllers();

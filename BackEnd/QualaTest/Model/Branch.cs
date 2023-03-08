@@ -5,10 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Domain
 {
     public class Branch: ModelBase
     {
+        /// <summary>
+        /// Class initializer
+        /// </summary>
+        /// <param name="id">Branch Id</param>
+        /// <param name="code">Branch code</param>
+        /// <param name="description">Branch description</param>
+        /// <param name="address">Branch address</param>
+        /// <param name="identification">Branch identification</param>
+        /// <param name="createdTime">Branch created time</param>
+        /// <param name="currency">Branch currency</param>
         public Branch(Guid id, int code, string description, string address, string identification, DateTime createdTime, Currency currency)
         {
             Id = id;
@@ -20,6 +30,10 @@ namespace Model
             Currency = currency;
             CurrencyId = currency.Id;
         }
+
+        /// <summary>
+        /// Class initializer
+        /// </summary>
         public Branch()
         {
                 
@@ -55,6 +69,7 @@ namespace Model
         /// </summary>
         [ForeignKey("Currency")]
         public Guid CurrencyId { get; set; }
+
         /// <summary>
         /// Branch currency
         /// </summary>

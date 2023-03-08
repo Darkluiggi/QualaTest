@@ -6,6 +6,9 @@ using QualaTest.Controllers.Responses;
 
 namespace QualaTest.Controllers;
 
+/// <summary>
+/// Api controller base
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public abstract class ApiControllerBase : Controller

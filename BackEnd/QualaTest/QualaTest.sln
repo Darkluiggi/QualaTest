@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QualaTest", "QualaTest\QualaTest.csproj", "{11687BF5-5A6D-402B-B6F0-4207C746ABB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualaTest", "QualaTest\QualaTest.csproj", "{11687BF5-5A6D-402B-B6F0-4207C746ABB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{C0052CDC-6E6B-47B3-8F0B-B15A05AA0713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Model\Domain.csproj", "{C0052CDC-6E6B-47B3-8F0B-B15A05AA0713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{5E0921FF-3949-493D-BEB2-8C58DA52CBA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{5E0921FF-3949-493D-BEB2-8C58DA52CBA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{2CD8A8C0-62A8-4823-8844-B3A503DBC8AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{2CD8A8C0-62A8-4823-8844-B3A503DBC8AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

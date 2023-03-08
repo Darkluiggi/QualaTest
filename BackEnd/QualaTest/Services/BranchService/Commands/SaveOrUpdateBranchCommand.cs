@@ -4,20 +4,48 @@ using Persistence;
 using Services.BranchService.Dtos;
 using System.Linq;
 using Services.Mappings;
-using Model;
+using Domain;
 
 namespace Services.BranchService.Queries
 {
+    /// <summary>
+    /// Save or update branch command
+    /// </summary>
+    /// <param name="Id">Branch id</param>
+    /// <param name="Code">Branch code</param>
+    /// <param name="Description">Branch description</param>
+    /// <param name="Address">Branch address</param>
+    /// <param name="Identification">Branch identification</param>
+    /// <param name="CreatedTime">Branch created time</param>
+    /// <param name="CurrencyId">Branch churrency id</param>
     public record SaveOrUpdateBranchCommand(Guid? Id, int Code, string Description, string Address, string Identification, DateTime CreatedTime, Guid CurrencyId) : IRequest<BranchDto>;
 
+    /// <summary>
+    /// Command handler
+    /// </summary>
     public class SaveOrUpdateBranchCommandHandler : IRequestHandler<SaveOrUpdateBranchCommand, BranchDto>
     {
+        /// <summary>
+        /// Application db context
+        /// </summary>
         private readonly AppDbContext _context;
 
+        /// <summary>
+        /// Constructor for command handler
+        /// </summary>
+        /// <param name="context">Application db context</param>
         public SaveOrUpdateBranchCommandHandler(AppDbContext context)
         {
             _context = new AppDbContext();
         }
+
+        /// <summary>
+        /// Handler for the class
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public async Task<BranchDto> Handle(SaveOrUpdateBranchCommand request, CancellationToken cancellationToken)
         {
             var currency = _context.Currencies.Where(c => c.Id == request.CurrencyId).FirstOrDefault();

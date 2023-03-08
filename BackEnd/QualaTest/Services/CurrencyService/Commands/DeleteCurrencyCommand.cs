@@ -4,7 +4,7 @@ using Persistence;
 using Services.BranchService.Dtos;
 using System.Linq;
 using Services.Mappings;
-using Model;
+using Domain;
 
 namespace Services.BranchService.Queries
 {

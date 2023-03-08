@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using Domain;
 using Services.BranchService.Dtos;
 using Services.CurrencyService.Dtos;
 using System;
