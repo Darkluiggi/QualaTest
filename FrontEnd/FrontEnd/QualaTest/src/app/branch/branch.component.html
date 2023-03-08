@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <h4 >Administrar sucursales</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button mat-raised-button color="primary" (click)="OpenCreateOrUpdateDialog()">Crear nueva sucursal</button>
+        </div>
+    </div>
+<div class="table-container">
+
+    <mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+            <mat-cell *matCellDef="let branch">{{branch.code}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+            <mat-cell *matCellDef="let branch">{{branch.description}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>Dirección</mat-header-cell>
+            <mat-cell *matCellDef="let branch">{{branch.address}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="identification">
+            <mat-header-cell *matHeaderCellDef>Identificación</mat-header-cell>
+            <mat-cell *matCellDef="let branch">{{branch.identification}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="created">
+            <mat-header-cell *matHeaderCellDef>Fecha de creación</mat-header-cell>
+            <mat-cell *matCellDef="let branch">{{branch.createdTime | date : 'mediumDate'}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="currency">
+            <mat-header-cell *matHeaderCellDef>Moneda</mat-header-cell>
+            <mat-cell *matCellDef="let branch">{{branch.description}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let branch">
+                <button mat-icon-button type="button" color="primary" (click)="Edit(this.branch)"  >
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="Delete(this.branch.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+</div>

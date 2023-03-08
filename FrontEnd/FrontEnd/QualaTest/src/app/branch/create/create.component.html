@@ -1,0 +1,72 @@
+<div mat-dialog-title>
+    <h3 *ngIf="isNew">Crear nueva sucursal</h3>
+    <h3 *ngIf="!isNew">Editar sucursal</h3>
+</div>
+
+<form [formGroup]="branchForm">
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Código</mat-label>
+            <input matInput type="number"
+            placeholder="Ingrese el código" class="form-control"
+            formControlName="code" [value]="branch.Code" required>
+        </mat-form-field>   
+
+        <ng-container>
+            <mat-form-field appearance="outline" >
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [min]="minDate" class="form-control"
+                formControlName="createdTime" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </ng-container>
+    </div>  
+    <div class="row">
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput class="form-control"
+            placeholder="Ingrese la descripcón"     
+            formControlName="description" maxlength="250" [value]="description" #description_ required></textarea>
+            <mat-hint align="end" *ngIf="description_.value.length < 250">{{description_.value.length || 0}}/250</mat-hint>
+            <mat-hint align="end" *ngIf="description_.value.length == 250" style="color:red">{{description_.value.length || 0}}/250</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Dirección</mat-label>
+            <textarea matInput type="text"
+            placeholder="Ingrese la dirección" class="form-control"
+            formControlName="address" maxlength="250" #address_ required></textarea>
+            <mat-hint align="end" *ngIf="address_.value.length < 250">{{address_.value.length || 0}}/250</mat-hint>
+            <mat-hint align="end" *ngIf="address_.value.length == 250" style="color:red">{{address_.value.length || 0}}/250</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="row">
+     
+        <mat-form-field appearance="outline">
+            <mat-label>Identificación</mat-label>
+            <input matInput type="text"
+            placeholder="Ingrese la identificación" class="form-control"
+            formControlName="identification" maxlength="50" #identification_ required>
+            <mat-hint align="end" *ngIf="identification_.value.length < 50">{{identification_.value.length || 0}}/50</mat-hint>
+            <mat-hint align="end" *ngIf="identification_.value.length == 50" style="color:red">{{identification_.value.length || 0}}/50</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Moneda</mat-label>
+            <mat-select class="form-control"
+            formControlName="currencyId" required>
+              <mat-option *ngFor="let currency of currencies" [value]="currency.id">
+               {{currency.symbol}} - {{currency.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div> 
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="Save()">Guardar</button>
+</div>
+</form>
